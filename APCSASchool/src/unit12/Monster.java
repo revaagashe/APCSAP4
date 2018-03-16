@@ -1,4 +1,5 @@
 package unit12;
+
 import static java.lang.System.*;
 
 public class Monster implements Comparable
