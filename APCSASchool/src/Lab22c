@@ -1,0 +1,86 @@
+import java.util.Collections;
+import java.util.ArrayList;
+import static java.lang.System.*;
+class InsertionSort
+{
+	private ArrayList<String> list = new ArrayList<String>();
+
+	public InsertionSort()
+	{
+	
+
+	}
+
+	//modfiers
+	public void add( String  word)
+	{
+		
+		int loc = 0;
+		if (list.indexOf(word)!=-1){
+			System.out.println("The word is already in the list.");
+		}
+		else{
+			loc = Collections.binarySearch(list, word);
+			
+			list.add(Math.abs(loc+1), word);
+			
+		}
+	}
+
+
+	public void remove(String word)
+	{
+	
+		if (list.indexOf(word) == -1){
+			System.out.println("The word is not in the list");
+		}
+		else{
+				list.remove(word);
+	
+		}
+		
+
+	}
+
+	public String toString()
+	{
+		
+		String output="";
+		for (int x=0; x<list.size(); x++){
+			output=output+list.get(x)+" ";
+		}
+		return output; 
+	}
+}
+public class Main
+{
+	public static void main(String args[])
+	{
+		InsertionSort test = new InsertionSort();
+		out.println("adding alice");
+		test.add("alice");
+		out.println("adding tommy");
+		test.add("tommy");
+		out.println("adding bobby");
+		test.add("bobby");
+		out.println("printing the list ::  "+test+"\n\n");
+		out.println("removing bobby");
+		test.remove("bobby");
+		out.println("printing the list ::  "+test+"\n\n");
+		out.println("removing alice");
+		test.remove("alice");
+		out.println("printing the list ::  "+test+"\n\n");
+		out.println("adding fred");
+		test.add("fred");
+		out.println("adding xylophone");
+		test.add("xylophone");
+		out.println("printing the list ::  "+test+"\n\n");
+		out.println("removing bobby");
+		test.remove("tommy");
+		test.remove("tommy");  //should do nothing		
+		out.println("printing the list ::  "+test+"\n\n");		
+		out.println("removing fred");
+		test.remove("fred");  		
+		out.println("printing the list ::  "+test+"\n\n");				
+	}
+}
