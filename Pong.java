@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//Â© A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -74,10 +74,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		leftPaddle.draw(graphToBack);
 		rightPaddle.draw(graphToBack);
 		graphToBack.setColor(Color.RED);
-		graphToBack.drawString("Scores",350,380);
+		graphToBack.drawString("Points: ",350,380);
 		
 		//see if ball hits left wall or right wall
-		if(!(ball.getX()<=20) && ball.getX()>=770)
+		if(!(ball.getX()>=20) && ball.getX()<=770)
 		{
 			ball.setXSpeed(0);
 			ball.setYSpeed(0);
@@ -102,7 +102,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				graphToBack.drawString("Right Paddle: "+(RightScore-1), 300, 400);
 				graphToBack.drawString("Left Paddle: "+(LeftScore-1), 300, 450);		
 				
-				graphToBack.setColor(Color.BLUE);
+				graphToBack.setColor(Color.RED);
 
 				graphToBack.drawString("Right Paddle: "+RightScore, 300, 400);
 				graphToBack.drawString("Left Paddle: "+LeftScore, 300, 450);
@@ -126,15 +126,15 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		ball.setYSpeed(-ball.getYSpeed());
 		}
 
-		if (ball.didCollideLeft(leftPaddle) || ball.didCollideRight(rightPaddle)) {
+		if (ball.didCollideRight(rightPaddle) || ball.didCollideLeft(leftPaddle)) {
 			ball.setXSpeed(-ball.getXSpeed());
 		}
 		
 		
 		
 		else if (ball.didCollideTop(rightPaddle) || ball.didCollideBottom(rightPaddle)){
-			ball.setYSpeed(-ball.getYSpeed());
 			ball.setXSpeed(-ball.getXSpeed());
+				ball.setYSpeed(-ball.getYSpeed());
 			
 		}
 		else if ( ball.didCollideTop(leftPaddle) || ball.didCollideBottom(leftPaddle)) {
